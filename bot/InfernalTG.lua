@@ -221,29 +221,31 @@ function create_config( )
     "all",
     "leave_ban"
     },
-    sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {109722284,99743635,171604508},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
+    about_text = [[infernalTG  v2 - Open Source
 An advance Administration bot based on yagop/telegram-bot 
-
+ 
+ source code 
 https://github.com/SEEDTEAM/TeleSeed
-
+Antispambot : @InfernalTG
 Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@Rondoozle [Developer]
-@seyedan25 [Manager]
+@Creed_is_dead [Founder]
+@digitalboys [Developer]
+@Arashinfernal [Developer]
+@MustafFlux [Manager]
 
 Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
+Imandaneshi
+thisisarman
+yago perez ...
+and more ...
 
 Our channels
-@teleseedch [English]
-@iranseed [persian]
+@Infernalteamch [English]
+@infernalchannel [persian]
+@Infernaltean [persian]
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -320,110 +322,8 @@ This command will send text to [group_id]
 *Only admins and sudo can use res, setowner, commands
 ]],
     help_text = [[
-Commands list :
-
-!kick [username|id]
-You can also do it by reply
-
-!ban [ username|id]
-You can also do it by reply
-
-!unban [id]
-You can also do it by reply
-
-!who
-Members list
-
-!modlist
-Moderators list
-
-!promote [username]
-Promote someone
-
-!demote [username]
-Demote someone
-
-!kickme
-Will kick user
-
-!about
-Group description
-
-!setphoto
-Set and locks group photo
-
-!setname [name]
-Set group name
-
-!rules
-Group rules
-
-!id
-return group id or user id
-
-!help
-
-!lock [member|name|bots|leave]	
-Locks [member|name|bots|leaveing] 
-
-!unlock [member|name|bots|leave]
-Unlocks [member|name|bots|leaving]
-
-!set rules <text>
-Set <text> as rules
-
-!set about <text>
-Set <text> as about
-
-!settings
-Returns group settings
-
-!newlink
-create/revoke your group link
-
-!link
-returns group link
-
-!owner
-returns group owner id
-
-!setowner [id]
-Will set id as owner
-
-!setflood [value]
-Set [value] as flood sensitivity
-
-!stats
-Simple message statistics
-
-!save [value] <text>
-Save <text> as [value]
-
-!get [value]
-Returns text of [value]
-
-!clean [modlist|rules|about]
-Will clear [modlist|rules|about] and set it to nil
-
-!res [username]
-returns user id
-"!res @username"
-
-!log
-will return group logs
-
-!banlist
-will return group ban list
-
-**U can use both "/" and "!" 
-
-
-*Only owner and mods can add bots in group
-
-
-*Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
-
-*Only owner can use res,setowner,promote,demote and log commands
+#INFERNALTG mods do not need help !!!!
+They Are Expert~~~~
 
 ]]
   }
