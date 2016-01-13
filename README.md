@@ -1,4 +1,4 @@
-# [TeleSeed](https://telegram.me/TeleSeed) 
+# [InfernalTG](https://telegram.me/TeleInfernal) 
 **An advance and powerful Administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under [GNU General public License](https://github.com/SEEDTEAM/TeleSeed/blob/master/LICENSE)**
 # Features
 
@@ -77,7 +77,8 @@
 		- [Join](#join)
 - [Installation](#installation)
 		- [One command](#one-command)
-		- [Realm configuration](#realm-configuration)
+	        - [Send pm](#sne-private)
+	- [Realm configuration](#realm-configuration)
 - [Support and development](#support-and-development)
 - [Special thanks to:](#special-thanks-to)
 - [Our team!](#our-team-)
@@ -89,7 +90,7 @@
 ### Group creation
 >[!/]creategroup [group name]
 >
->>[!/]creategroup SEED
+>>[!/]creategroup Infernal
 >>>will create a group
 >>>
 >>>_Only works in realms for admins but, sudo users can use it everywhere_
@@ -97,7 +98,7 @@
 ### Realm creation
 >[!/]createrealm [realm name]
 >
->>[!/]createrealm SEED
+>>[!/]createrealm Infernal
 >>>will create a realm
 >>>
 >>>_Only works in realms for admins but, sudo users can use it everywhere_
@@ -118,7 +119,7 @@
 >>This command will remove that group
 
 ###Leaving
->[!/]leave
+>[!/]left
 >>Bot will leave that group
 
 ###Everything about groups
@@ -137,7 +138,7 @@
 
 ### Setting group name in realm 
 > [!/]setname [Group_id] [text]
->>[!/]setname 123456789 SEED
+>>[!/]setname 123456789 Infernal
 >>>This command will set [text] as name of [Group_id]
 
 ### Setting rules in realm
@@ -216,7 +217,7 @@
 >>>This command will set [User_id] as the owner of [group_id]
 
 ### Bot stats 
->[!/]stats teleseed
+>[!/]stats InfernalTG
 >>This command will return bot stats
 
 # Realm Help
@@ -284,7 +285,7 @@ _Sudo users and admins can also use this commands in all groups_
 
 ### Changing Group name
 >[!/]setname [name]
->>[!/]setname SEED
+>>[!/]setname Infernal
 >>>This command will set [name] as name of groups
 
 ### Group link
@@ -435,69 +436,9 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 ```bash
 # lets install the bot
 cd $HOME
-git clone https://github.com/SEEDTEAM/TeleSeed.git
-cd TeleSeed
-chmod +x launch.sh
+git clone https://github.com/Arash-infernalTG/InfernalTG.git
+cd InfernalTg
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
 ```
-### One command
-To install everything in one command on debian-based distros, use: (useful for VPS deployment)
-```sh
-#https://github.com/yagop/telegram-bot/wiki/Installation
-sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson* libpython-dev make unzip git redis-server g++ -y --force-yes && git clone https://github.com/SEEDTEAM/TeleSeed.git && cd TeleSeed && chmod +x launch.sh && ./launch.sh install && ./launch.sh
-```
-### Realm configuration 
 
-After you ran bot for first time, go to bot and use !id command
-
-Get your id then, stop bot
-
-open file ./data/config.lua 
-
-add your id to the "sudo_users" section in the following format:
-```
-  sudo_users = {
-    110626080,
-    103649648,
-    111020322,
-    0,
-    YourID
-  }
-```
-then start the bot again
-
-Create a realm using !createrealm command
-
-
-# Support and development
-
-Do not contact **us** In private for support.
-Join our bot development group by sending `/join 56670147` to [@TeleSeed](https://telegram.me/TeleSeed)
-
-_If you are using /join service for first time you have to send it 11 times ( Bot is spam reported )_
-
-# Special thanks to
-[@seyedan25](https://telegram.me/seyedan25)
-
-For Managing [@teleseed](https://telegram.me/TeleSeed) on Telegram
-
-[@Vamptacus](https://telegram.me/Vamptacus)
-
-For graphic designs
-
-[@topkecleon](https://github.com/topkecleon)
-
-[@JuanPotato](https://github.com/JuanPotato)
-
-# Our team!
-
-[Alphonse](https://github.com/hmon) ([Telegram](https://telegram.me/iwals))
-
-[I M /-\ N](https://github.com/imandaneshi) ([Telegram](https://telegram.me/imandaneshi))
-
-[Siyanew](https://github.com/Siyanew) ([Telegram](https://telegram.me/Siyanew))
-
-[Rondoozle](https://github.com/Rondoozle) ([Telegram](https://telegram.me/Rondoozle))
-
-Our Telegram cahnnels > English: [@TeleSeedCH](https://telegram.me/teleseedch) Persian: [@IranSeed](https://telegram.me/iranseed)
