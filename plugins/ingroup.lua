@@ -591,7 +591,7 @@ local function setowner_by_reply(extra, success, result)
   data[tostring(msg.to.id)]['set_owner'] = tostring(msg.from.id)
       save_data(_config.moderation.data, data)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] setted ["..msg.from.id.."] as owner")
-      local text = msg.from.print_name:gsub("_", " ").." is the owner now"
+      local text = msg.from.print_name:gsub("_", " ").." Has Been Promoted as the Leader"
       return send_large_msg(receiver, text)
 end
 
@@ -735,24 +735,24 @@ local function run(msg, matches)
   end
   if matches[1] == 'add' and not matches[2] then
     if is_realm(msg) then
-       return 'Error: Already a realm.'
+       return 'Error: Already a Admins Group.'
     end
     print("group "..msg.to.print_name.."("..msg.to.id..") added")
     return modadd(msg)
   end
-   if matches[1] == 'add' and matches[2] == 'realm' then
+   if matches[1] == 'add' and matches[2] == 'gpadmins' then
     if is_group(msg) then
        return 'Error: Already a group.'
     end
-    print("group "..msg.to.print_name.."("..msg.to.id..") added as a realm")
+    print("group "..msg.to.print_name.."("..msg.to.id..") added as a Admins Group!")
     return realmadd(msg)
   end
   if matches[1] == 'rem' and not matches[2] then
     print("group "..msg.to.print_name.."("..msg.to.id..") removed")
     return modrem(msg)
   end
-  if matches[1] == 'rem' and matches[2] == 'realm' then
-    print("group "..msg.to.print_name.."("..msg.to.id..") removed as a realm")
+  if matches[1] == 'rem' and matches[2] == 'gpadmins' then
+    print("group "..msg.to.print_name.."("..msg.to.id..") removed as a Group Admins")
     return realmrem(msg)
   end
   if matches[1] == 'chat_created' and msg.from.id == 0 and group_type == "group" then
@@ -891,7 +891,7 @@ local function run(msg, matches)
     end
     if matches[1] == 'promote' and not matches[2] then
       if not is_owner(msg) then
-        return "Only the owner can prmote new moderators"
+        return "Only the leaders can prmote new moderators"
       end
       if type(msg.reply_id)~="nil" then
           msgr = get_message(msg.reply_id, promote_by_reply, false)
@@ -902,7 +902,7 @@ local function run(msg, matches)
         return
       end
       if not is_owner(msg) then
-        return "Only owner can promote"
+        return "Only Leaders can promote"
       end
 	local member = matches[2]
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] promoted @".. member)
@@ -917,7 +917,7 @@ local function run(msg, matches)
     end
     if matches[1] == 'demote' and not matches[2] then
       if not is_owner(msg) then
-        return "Only the owner can demote moderators"
+        return "Only Leaders can demote moderators"
       end
       if type(msg.reply_id)~="nil" then
           msgr = get_message(msg.reply_id, demote_by_reply, false)
@@ -928,7 +928,7 @@ local function run(msg, matches)
         return
       end
       if not is_owner(msg) then
-        return "Only owner can demote"
+        return "Only Leaders can demote"
       end
       if string.gsub(matches[2], "@", "") == msg.from.username and not is_owner(msg) then
         return "You can't demote yourself"
@@ -1047,7 +1047,7 @@ local function run(msg, matches)
     end
   end]]
 
-    if matches[1] == 'newlink' and not is_realm(msg) then
+    if matches[1] == 'clink' and not is_realm(msg) then
       if not is_momod(msg) then
         return "For moderators only!"
       end
@@ -1056,7 +1056,20 @@ local function run(msg, matches)
         if success == 0 then
            return send_large_msg(receiver, '*Error: Invite link failed* \nReason: Not creator.')
         end
-        send_large_msg(receiver, "Created a new link")
+        send_large_msg(receiver, "Link Has Been Created!")
+        data[tostring(msg.to.id)]['settings']['set_link'] = result
+        save_data(_config.moderation.data, data)
+        end
+        if matches[1] == 'rlink' and not is_realm(msg) then
+      if not is_momod(msg) then
+        return "For moderators only!"
+      end
+      local function callback (extra , success, result)
+        local receiver = 'chat#'..msg.to.id
+        if success == 0 then
+           return send_large_msg(receiver, '*Error: Invite link failed* \nReason: Not creator.')
+        end
+        send_large_msg(receiver, "Link Has Been Revoked!")
         data[tostring(msg.to.id)]['settings']['set_link'] = result
         save_data(_config.moderation.data, data)
       end
@@ -1064,16 +1077,16 @@ local function run(msg, matches)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] revoked group link ")
       return export_chat_link(receiver, callback, true)
     end
-    if matches[1] == 'link' then
+    if matches[1] == 'getlink' then
       if not is_momod(msg) then
         return "For moderators only!"
       end
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
       if not group_link then 
-        return "Create a link using /newlink first !"
+        return "Create a link using /clink first !"
       end
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-      return "Group link:\n"..group_link
+      return "Group invition link is:\n"..group_link
     end
     if matches[1] == 'setowner' and matches[2] then
       if not is_owner(msg) then
@@ -1082,7 +1095,7 @@ local function run(msg, matches)
       data[tostring(msg.to.id)]['set_owner'] = matches[2]
       save_data(_config.moderation.data, data)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] set ["..matches[2].."] as owner")
-      local text = matches[2].." added as owner"
+      local text = matches[2].." Has Been Promoted As Group Leader"
       return text
     end
     if matches[1] == 'setowner' and not matches[2] then
@@ -1093,13 +1106,13 @@ local function run(msg, matches)
           msgr = get_message(msg.reply_id, setowner_by_reply, false)
       end
     end
-    if matches[1] == 'owner' then
+    if matches[1] == 'leader' then
       local group_owner = data[tostring(msg.to.id)]['set_owner']
       if not group_owner then 
-        return "no owner,ask admins in support groups to set owner for your group"
+        return "no Leader,ask admins in support groups to set owner for your group"
       end
-      savelog(msg.to.id, name_log.." ["..msg.from.id.."] used /owner")
-      return "Group owner is ["..group_owner..']'
+      savelog(msg.to.id, name_log.." ["..msg.from.id.."] used /leader")
+      return "Group Leader is ["..group_owner..']'
     end
     if matches[1] == 'setgpowner' then
       local receiver = "chat#id"..matches[2]
@@ -1108,7 +1121,7 @@ local function run(msg, matches)
       end
       data[tostring(matches[2])]['set_owner'] = matches[3]
       save_data(_config.moderation.data, data)
-      local text = matches[3].." added as owner"
+      local text = matches[3].." added as has been promoted as leader"
       send_large_msg(receiver, text)
       return
     end
@@ -1193,13 +1206,13 @@ local function run(msg, matches)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] Used /help")
       return help()
     end
-    if matches[1] == 'res' and is_momod(msg) then 
+    if matches[1] == 'getid' and is_momod(msg) then 
       local cbres_extra = {
         chatid = msg.to.id
       }
       local username = matches[2]
       local username = username:gsub("@","")
-      savelog(msg.to.id, name_log.." ["..msg.from.id.."] Used /res "..username)
+      savelog(msg.to.id, name_log.." ["..msg.from.id.."] Used /getid "..username)
       return res_user(username,  callbackres, cbres_extra)
     end
     if matches[1] == 'kickinactive' then
@@ -1221,9 +1234,9 @@ end
 return {
   patterns = {
   "^[!/](add)$",
-  "^[!/](add) (realm)$",
+  "^[!/](add) (gpadmins)$",
   "^[!/](rem)$",
-  "^[!/](rem) (realm)$",
+  "^[!/](rem) (gpadmins)$",
   "^[!/](rules)$",
   "^[!/](about)$",
   "^[!/](setname) (.*)$",
@@ -1240,16 +1253,17 @@ return {
   "^[!/](lock) (.*)$",
   "^[!/](setowner) (%d+)$",
   "^[!/](setowner)",
-  "^[!/](owner)$",
-  "^[!/](res) (.*)$",
+  "^[!/](leader)$",
+  "^[!/](getid) (.*)$",
   "^[!/](setgpowner) (%d+) (%d+)$",-- (group id) (owner id)
   "^[!/](unlock) (.*)$",
   "^[!/](setflood) (%d+)$",
   "^[!/](settings)$",
 -- "^[!/](public) (.*)$",
   "^[!/](modlist)$",
-  "^[!/](newlink)$",
-  "^[!/](link)$",
+  "^[!/](clink)$",
+  "^[!/](rlink)$",
+  "^[!/](getlink)$",
   "^[!/](kickinactive)$",
   "^[!/](kickinactive) (%d+)$",
   "%[(photo)%]",
