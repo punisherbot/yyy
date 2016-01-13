@@ -14,7 +14,7 @@ function run(msg, matches)
   local data = load_data(_config.moderation.data)
   if not is_realm(msg) then
     if data[tostring(msg.to.id)]['settings']['lock_member'] == 'yes' and not is_admin(msg) then
-		  return 'Group is private.'
+		  return 'Group Members are locked.'
     end
   end
   if msg.to.type ~= 'chat' then 
@@ -33,7 +33,7 @@ function run(msg, matches)
 end
 return {
     patterns = {
-      "^[!/]invite (.*)$"
+      "^[!/]inv (.*)$"
     },
     run = run
 }
