@@ -119,7 +119,7 @@ local function all(target, receiver)
   text = text.."\n\n"..stats
   local ban_list = ban_list(target)
   text = text.."\n\n"..ban_list
-  local file = io.open("./groups/all/"..target.."all.txt", "w")
+  local file = io.open("./groups/all/"..target.."allaboutgp.txt", "w")
   file:write(text)
   file:flush()
   file:close()
@@ -128,7 +128,7 @@ local function all(target, receiver)
 end
 
 function run(msg, matches)
-  if matches[1] == "all" and matches[2] and is_owner2(msg.from.id, matches[2]) then
+  if matches[1] == "allaboutgp" and matches[2] and is_owner2(msg.from.id, matches[2]) then
     local receiver = get_receiver(msg)
     local target = matches[2]
     return all(target, receiver)
@@ -136,7 +136,7 @@ function run(msg, matches)
   if not is_owner(msg) then
     return
   end
-  if matches[1] == "all" and not matches[2] then
+  if matches[1] == "allaboutgp" and not matches[2] then
     local receiver = get_receiver(msg)
     if not is_owner(msg) then
       return
@@ -148,8 +148,8 @@ end
 
 return {
   patterns = {
-  "^[!/](all)$",
-  "^[!/](all) (%d+)$"
+  "^[!/](allaboutgp)$",
+  "^[!/](allaboutgp) (%d+)$"
   },
   run = run
 }
