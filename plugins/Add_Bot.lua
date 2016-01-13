@@ -9,6 +9,7 @@ single [invite link] in a post.
 do
 
   local function parsed_url(link)
+    if is_sudo(msg) then
     local parsed_link = URL.parse(link)
     local parsed_path = URL.parse_path(parsed_link.path)
     i = 0
