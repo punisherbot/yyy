@@ -59,11 +59,11 @@ local function run (msg, matches)
   local chatId = msg.to.id
   if matches[1] == 'enable' then
     enableAntiBot(chatId)
-    return 'Anti-bot enabled on this chat'
+    return 'Anti Bot enabled on this chat The bots will be kicked!'
   end
   if matches[1] == 'disable' then
     disableAntiBot(chatId)
-    return 'Anti-bot disabled on this chat'
+    return 'Anti-bot disabled on this chat bots will not kicked!'
   end
   if matches[1] == 'allow' then
     local userId = matches[2]
@@ -122,3 +122,4 @@ return {
   run = run
      moderated = true
 }
+--by ArashInfernal--
