@@ -233,7 +233,9 @@ function create_config( )
     "Version",
     "close_group",
     "kickall",
-    "SendPm"
+    "SendPm",
+    "tagall",
+    "share",
     "",
     },
     sudo_users = {109722284,99743635,171604508},--Sudo users
@@ -371,7 +373,9 @@ tools for InfernalTG :
 >#28.close_group
 >#29.kickall
 >#30.SendPm
-
+>#31.tagall
+>#32.share
+help all plugin soon :D ,"
 You Can Get Bot version by sending !version,"
 Master admin : @ArashInfernal ,"
 our channel : @INFERNALTEAMCH ,"
