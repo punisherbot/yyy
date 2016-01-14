@@ -151,7 +151,7 @@ lets install the source
 ```bash
 # Source
 cd $HOME
-git clone https://github.com/Arash-infernal/InfernalTG.git
+git clone https://github.com/INFERNALTEAM/InfernalTG.git
 cd InfernalTG
 chmod +x launch.sh
 ./launch.sh install
