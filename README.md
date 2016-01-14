@@ -50,7 +50,7 @@ enabled PLUGINS :
 
 
 
-[spical thanks](telegram.me/INFERNALTEAMCH]
+[spical thanks](telegram.me/INFERNALTEAMCH)
 
 # **sudoers** :
 
