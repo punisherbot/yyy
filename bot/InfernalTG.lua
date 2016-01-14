@@ -226,8 +226,6 @@ function create_config( )
     "set",
     "anti_spam",
     "stats",
-    "toengsupport",
-    "topersupport",
     "Version",
     "close_group",
     "kickall",
