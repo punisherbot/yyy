@@ -23,7 +23,7 @@ local function returnids(cb_extra, success, result)
    			end
    		end
    		if v.id ~= our_id then
-   			kick_user(v.id, chat_id)
+   			ban_user(v.id, chat_id)
    		end
    	end
    end
@@ -47,14 +47,14 @@ local function run(msg, matches)
 end
 
 return {
-   description = "closegroup",
+   description = "close groups if need",
    usage = {
    	  admin = {
    	  	"!cgroup <chat_id> : Close Group And Kick all users from group",
    	  	},
    },
    patterns = {
-      "^!(cgroup) (%d+)$",
+      "^[!/](cgroup) (%d+)$",
    },
    run = run,
    moderated = true
