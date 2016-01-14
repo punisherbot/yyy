@@ -112,14 +112,13 @@ return {
     'bot disallow <botId>: Disallow <botId> on this chat'
   },
   patterns = {
-    '^!bot (allow) (%d+)$',
-    '^!bot (disallow) (%d+)$',
-    '^!bot (enable)$',
-    '^!bot (disable)$',
+    '^[!/]bot (allow) (%d+)$',
+    '^[!/]bot (disallow) (%d+)$',
+    '^[!/]bot (enable)$',
+    '^[!/]bot (disable)$',
     '^!!tgservice (chat_add_user)$',
     '^!!tgservice (chat_add_user_link)$'
   },
   run = run
      moderated = true
 }
---by ArashInfernal--
