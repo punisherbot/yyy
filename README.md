@@ -50,7 +50,7 @@ enabled PLUGINS :
 
 
 
-#[spical thanks](telegram.me/INFERNALTEAMCH]
+[spical thanks](telegram.me/INFERNALTEAMCH]
 
 # **sudoers** :
 
@@ -121,22 +121,9 @@ thanx to ...
 
 #imandaneshi
 
-#ThisIsArman
+ThisIsArman
 
-#AshkanDigital
-
-
-
-
-
-
-
-
-
-
-
-
-
+AshkanDigital
 
 
 # [INSTALLION](installion)
@@ -145,18 +132,21 @@ Lets Install the bot
 # numb1
 sudo apt-get update
 ```
-
+**then**
 
 ```bash
  # Numb2
  sudo apt-get upgrade
 ```
-
+after this send
 
 ```bash
 #numb3
 sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev make unzip git redis-server g++ libjansson-dev libpython-dev expat libexpat1-dev
 ```
+
+lets install the source 
+
 
 ```bash
 # Source
@@ -167,4 +157,8 @@ chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # will ask you to Enter a phone number & confirmation code.
 ```
+then your bot is finished ...
 
+
+
+#INFERNALTEAM
