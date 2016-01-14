@@ -1,7 +1,6 @@
 do
 
 function run(msg, matches)
-if is sudo(msg) then
 return [[
 🔹íղƒҽɾղɑӀ™ is attacking🔸 ...
 🔹íղƒҽɾղɑӀ™ is attacking🔸 ...
