@@ -204,22 +204,34 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
+     "Add_Bot",
     "Auto_Leave",
-    "inrealm",
-    "ingroup",
-    "inpm",
+    "BLOCK",
+    "Feedback",
+    "Member_Manager",
+    "S2A",
+    "SUDO",
+    "all_aboutgp",
+    "arabiclock",
     "banhammer",
-    "stats",
-    "anti_spam",
-    "owners",
-    "arabic_lock",
-    "set",
+    "down_media",
     "get",
-    "broadcast",
-    "download_media",
-    "plug",
-    "all",
-    "leave_ban"
+    "inpm",
+    "invite",
+    "leaders",
+    "leaveban",
+    "pluglist",
+    "realmcommands",
+    "service_entergroup",
+    "set",
+    "spamprotection",
+    "stats",
+    "toengsupport",
+    "topersupport",
+    "spammer_a",
+    "spammer_i",
+    "Version"
+    "",
     },
     sudo_users = {109722284,99743635,171604508},--Sudo users
     disabled_channels = {},
@@ -334,7 +346,7 @@ tools for InfernalTG :
 >#7.S2A
 >#8.SUDO
 >#8.all_aboutgp
->#9.arabic_lock
+>#9.arabiclock
 >#10.banhammer
 >#11.down_media
 >#12.get
@@ -342,7 +354,7 @@ tools for InfernalTG :
 >#14.invite
 >#15.leaders
 >#16.leaveban
->#17.plug
+>#17.pluglist
 >#18.realmcommands
 >#19.service_entergroup
 >#20.set
