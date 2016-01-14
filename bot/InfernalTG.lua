@@ -211,15 +211,15 @@ function create_config( )
     "Member_Manager",
     "S2A",
     "SUDO",
-    "all_aboutgp",
-    "arabiclock",
+    "all",
+    "arabic_lock",
     "banhammer",
-    "down_media",
+    "download_media",
     "get",
     "inpm",
     "invite",
     "leaders",
-    "leaveban",
+    "leave_ban",
     "pluglist",
     "realmcommands",
     "service_entergroup",
@@ -233,7 +233,6 @@ function create_config( )
     "kickall",
     "SendPm",
     "tagall",
-    "share",
     
     },
     sudo_users = {109722284,99743635,171604508},--Sudo users
@@ -348,20 +347,20 @@ tools for InfernalTG :
 >#6.Member_Manager
 >#7.S2A
 >#8.SUDO
->#8.all_aboutgp
->#9.arabiclock
+>#8.all
+>#9.arabic_lock
 >#10.banhammer
 >#11.down_media
 >#12.get
 >#13.inpm
 >#14.invite
 >#15.leaders
->#16.leaveban
+>#16.leave_ban
 >#17.pluglist
 >#18.realmcommands
 >#19.service_entergroup
 >#20.set
->#21.spamprotection
+>#21.anti_spam
 >#22.stats
 >#23.toengsupport
 >#24.topersupport
