@@ -102,7 +102,7 @@ local function kick_ban_res(extra, success, result)
         if is_momod2(member_id, chat_id) and not is_admin2(sender) then
           return send_large_msg(receiver, "You can't ban mods/owner/admins")
         end
-        send_large_msg(receiver, 'User @'..member..' ['..member_id..'] banned')
+        send_large_msg(receiver, 'User @'..member..' '..member_id..' banned!')
         return ban_user(member_id, chat_id)
       elseif get_cmd == 'unban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] unbanned')
@@ -112,7 +112,7 @@ local function kick_ban_res(extra, success, result)
       elseif get_cmd == 'globalban' then
         send_large_msg(receiver, 'User @'..member..' '..member_id..' globally banned!')
         return banall_user(member_id, chat_id)
-      elseif get_cmd == 'unbanall' then
+      elseif get_cmd == 'globalunban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] un-globally banned')
         return unbanall_user(member_id, chat_id)
       end
@@ -268,7 +268,7 @@ end
          	return false 
         end
         	banall_user(targetuser)
-       		return 'User ['..user_id..' ] globally banned'
+       		return 'User '..user_id..'  globally banned!'
       else
 	local cbres_extra = {
 		chat_id = msg.to.id,
@@ -280,7 +280,7 @@ end
 		res_user(username, kick_ban_res, cbres_extra)
       	end
   end
-  if matches[1]:lower() == 'unbanall' then -- Global unban
+  if matches[1]:lower() == 'globalunban' then -- Global unban
     local user_id = matches[2]
     local chat_id = msg.to.id
       if string.match(matches[2], '^%d+$') then
@@ -288,7 +288,7 @@ end
           	return false 
         end
        		unbanall_user(user_id)
-        	return 'User ['..user_id..' ] removed from global ban list'
+        	return 'User '..user_id..'  globally unbanned!'
       else
 	local cbres_extra = {
 		chat_id = msg.to.id,
@@ -315,8 +315,8 @@ return {
     "^[!/]([Bb]an) (.*)$",
     "^[!/]([Kk]ick)$",
     "^[!/]([Uu]nban) (.*)$",
-    "^[!/]([Uu]nbanall) (.*)$",
-    "^[!/]([Uu]nbanall)$",
+    "^[!/]([Gg]lobalunban) (.*)$",
+    "^[!/]([Gg]lobalunban)$",
     "^[!/]([Kk]ick) (.*)$",
     "^[!/]([Kk]ickme)$",
     "^[!/]([Bb]an)$",
