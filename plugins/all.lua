@@ -136,7 +136,7 @@ function run(msg, matches)
   if not is_owner(msg) then
     return
   end
-  if matches[1] == "allaboutgp" and not matches[2] then
+  if matches[1] == "all" and not matches[2] then
     local receiver = get_receiver(msg)
     if not is_owner(msg) then
       return
@@ -148,8 +148,8 @@ end
 
 return {
   patterns = {
-  "^[!/](allaboutgp)$",
-  "^[!/](allaboutgp) (%d+)$"
+  "^[!/](all)$",
+  "^[!/](all) (%d+)$"
   },
   run = run
 }
