@@ -121,7 +121,7 @@ local function check_member_modadd(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'Group is added and you have been promoted as the owner ')
+      return send_large_msg(receiver, 'Group has been added! ')
     end
   end
 end
@@ -450,7 +450,7 @@ end
 local function modadd(msg)
   -- superuser and admins only (because sudo are always has privilege)
   if not is_admin(msg) then
-    return "You're not admin"
+    return "You're not global admin"
   end
   local data = load_data(_config.moderation.data)
   if is_group(msg) then
@@ -462,7 +462,7 @@ end
 local function realmadd(msg)
   -- superuser and admins only (because sudo are always has privilege)
   if not is_admin(msg) then
-    return "You're not admin"
+    return "You're not globall admin"
   end
   local data = load_data(_config.moderation.data)
   if is_realm(msg) then
@@ -475,7 +475,7 @@ end
 function modrem(msg)
   -- superuser and admins only (because sudo are always has privilege)
   if not is_admin(msg) then
-    return "You're not admin"
+    return "You're not global admin"
   end
   local data = load_data(_config.moderation.data)
   if not is_group(msg) then
@@ -488,7 +488,7 @@ end
 function realmrem(msg)
   -- superuser and admins only (because sudo are always has privilege)
   if not is_admin(msg) then
-    return "You're not admin"
+    return "You're not global admin"
   end
   local data = load_data(_config.moderation.data)
   if not is_realm(msg) then
@@ -591,7 +591,7 @@ local function setowner_by_reply(extra, success, result)
   data[tostring(msg.to.id)]['set_owner'] = tostring(msg.from.id)
       save_data(_config.moderation.data, data)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] setted ["..msg.from.id.."] as owner")
-      local text = msg.from.print_name:gsub("_", " ").." is the owner now"
+      local text = msg.from.print_name:gsub("_", " ").." has been promoted as the owner!"
       return send_large_msg(receiver, text)
 end
 
@@ -1076,13 +1076,13 @@ local function run(msg, matches)
       return "Your Invation link:\n"..group_link
     end
     if matches[1] == 'setowner' and matches[2] then
-      if not is_owner(msg) then
-        return "For owner only!"
+      if not is_admin(msg) then
+        return "For GLOBALL admins only!"
       end
       data[tostring(msg.to.id)]['set_owner'] = matches[2]
       save_data(_config.moderation.data, data)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] set ["..matches[2].."] as owner")
-      local text = matches[2].." added as owner"
+      local text = matches[2].." has been promoted as owner!"
       return text
     end
     if matches[1] == 'setowner' and not matches[2] then
@@ -1108,7 +1108,7 @@ local function run(msg, matches)
       end
       data[tostring(matches[2])]['set_owner'] = matches[3]
       save_data(_config.moderation.data, data)
-      local text = matches[3].." added as owner"
+      local text = matches[3].." has been promoted as the owner"
       send_large_msg(receiver, text)
       return
     end
@@ -1126,11 +1126,11 @@ local function run(msg, matches)
       return 'Group flood has been set to '..matches[2]
     end
     if matches[1] == 'clean' then
-      if not is_owner(msg) then
-        return "Only owner can clean"
+      if not is_admin(msg) then
+        return "Only global admins can clean"
       end
       if matches[2] == 'member' then
-        if not is_owner(msg) then
+        if not is_admin(msg) then
           return "Only admins can clean members"
         end
         local receiver = get_receiver(msg)
@@ -1161,7 +1161,7 @@ local function run(msg, matches)
       end     
     end
     if matches[1] == 'kill' and matches[2] == 'chat' then
-      if not is_admin(msg) then
+      if not is_sudo(msg) then
           return nil
       end
       if not is_realm(msg) then
@@ -1174,7 +1174,7 @@ local function run(msg, matches)
       end
    end
     if matches[1] == 'kill' and matches[2] == 'realm' then
-     if not is_admin(msg) then
+     if not is_sudo(msg) then
          return nil
      end
      if not is_group(msg) then
