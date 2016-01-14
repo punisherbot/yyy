@@ -220,7 +220,7 @@ function create_config( )
     "invite",
     "leaders",
     "leave_ban",
-    "pluglist",
+    "plugins",
     "realmcommands",
     "service_entergroup",
     "set",
