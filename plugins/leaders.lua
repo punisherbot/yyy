@@ -241,7 +241,7 @@ local function run(msg, matches)
         return unlock_group_membermod(msg, data, target)
       end
     end
-    if matches[2] == 'new' then
+    if matches[2] == 'c' then
       if matches[3] == 'link' then
         if not is_owner2(msg.from.id, chat_id) then
           return "You are not the owner of this group"
@@ -267,11 +267,11 @@ local function run(msg, matches)
         end
         local group_link = data[tostring(matches[1])]['settings']['set_link']
         if not group_link then 
-          return "Create a link using /newlink first !"
+          return "Create a link using /clink first !"
         end
         local name = user_print_name(msg.from)
         savelog(matches[1], name.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-        return "Group link:\n"..group_link
+        return "invition Group link for this groups is:\n"..group_link
       end
     end
     if matches[1] == 'changeabout' and matches[2] and is_owner2(msg.from.id, matches[2]) then
