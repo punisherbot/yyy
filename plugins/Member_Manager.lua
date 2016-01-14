@@ -89,7 +89,7 @@ function check_member_group(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'You have been promoted as the owner.')
+      return send_large_msg(receiver, 'You have been promoted as the leader.')
     end
   end
 end
@@ -121,7 +121,7 @@ local function check_member_modadd(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'Group is added and you have been promoted as the owner ')
+      return send_large_msg(receiver, 'Group is added and you have been promoted as the leader ')
     end
   end
 end
@@ -740,7 +740,7 @@ local function run(msg, matches)
     print("group "..msg.to.print_name.."("..msg.to.id..") added")
     return modadd(msg)
   end
-   if matches[1] == 'add' and matches[2] == 'gpadmins' then
+   if matches[1] == 'add' and matches[2] == 'realm' then
     if is_group(msg) then
        return 'Error: Already a group.'
     end
@@ -751,8 +751,8 @@ local function run(msg, matches)
     print("group "..msg.to.print_name.."("..msg.to.id..") removed")
     return modrem(msg)
   end
-  if matches[1] == 'rem' and matches[2] == 'gpadmins' then
-    print("group "..msg.to.print_name.."("..msg.to.id..") removed as a Group Admins")
+  if matches[1] == 'rem' and matches[2] == 'realm' then
+    print("group "..msg.to.print_name.."("..msg.to.id..") removed as a realm")
     return realmrem(msg)
   end
   if matches[1] == 'chat_created' and msg.from.id == 0 and group_type == "group" then
@@ -1232,9 +1232,9 @@ end
 return {
   patterns = {
   "^[!/](add)$",
-  "^[!/](add) (gpadmins)$",
+  "^[!/](add) (realm)$",
   "^[!/](rem)$",
-  "^[!/](rem) (gpadmins)$",
+  "^[!/](rem) (realm)$",
   "^[!/](rules)$",
   "^[!/](about)$",
   "^[!/](setname) (.*)$",
