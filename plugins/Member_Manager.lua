@@ -1060,19 +1060,6 @@ local function run(msg, matches)
         data[tostring(msg.to.id)]['settings']['set_link'] = result
         save_data(_config.moderation.data, data)
         end
-        if matches[1] == 'rlink' and not is_realm(msg) then
-      if not is_momod(msg) then
-        return "For moderators only!"
-      end
-      local function callback (extra , success, result)
-        local receiver = 'chat#'..msg.to.id
-        if success == 0 then
-           return send_large_msg(receiver, '*Error: Invite link failed* \nReason: Not creator.')
-        end
-        send_large_msg(receiver, "Link Has Been Revoked!")
-        data[tostring(msg.to.id)]['settings']['set_link'] = result
-        save_data(_config.moderation.data, data)
-      end
       local receiver = 'chat#'..msg.to.id
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] revoked group link ")
       return export_chat_link(receiver, callback, true)
@@ -1120,7 +1107,7 @@ local function run(msg, matches)
     if matches[1] == 'leader' then
       local group_owner = data[tostring(msg.to.id)]['set_owner']
       if not group_owner then 
-        return "no Leader,ask admins in support groups to set owner for your group"
+        return "no Leader,ask admins in support groups to setleader for your group"
       end
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] used /leader")
       return "Group Leader is ["..group_owner..']'
@@ -1273,7 +1260,6 @@ return {
 -- "^[!/](public) (.*)$",
   "^[!/](modlist)$",
   "^[!/](clink)$",
-  "^[!/](rlink)$",
   "^[!/](getlink)$",
   "^[!/](splink)$",
   "^[!/](kickinactive)$",
