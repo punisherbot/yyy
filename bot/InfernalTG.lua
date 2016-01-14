@@ -236,7 +236,7 @@ function create_config( )
     "SendPm",
     "tagall",
     "share",
-    "",
+    
     },
     sudo_users = {109722284,99743635,171604508},--Sudo users
     disabled_channels = {},
