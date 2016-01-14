@@ -227,9 +227,10 @@ function create_config( )
     about_text = [[infernalTG  v2 - Open Source
 An advance Administration bot based on yagop/telegram-bot 
  
- source code 
-https://github.com/SEEDTEAM/TeleSeed
+ our official github :
+ https://github.com/INFERNALTEAM/InfernalTG.git
 Antispambot : @InfernalTG
+website ; https://arash-infernal.epage.ir
 Admins
 @Creed_is_dead [Founder]
 @digitalboys [Developer]
@@ -245,10 +246,10 @@ and more ...
 Our channels
 @Infernalteamch [English]
 @infernalchannel [persian]
-@Infernaltean [persian]
+@Infernalteam [persian]
 ]],
     help_text_realm = [[
-Realm Commands:
+group admin Commands:
 
 !creategroup [Name]
 Create a group
@@ -286,23 +287,23 @@ Kick all memebers and delete group
 !kill realm [RealmID]
 Kick all members and delete realm
 
-!addadmin [id|username]
+!adminprom [id|username]
 Promote an admin by id OR username *Sudo only
 
-!removeadmin [id|username]
+!admindem [id|username]
 Demote an admin by id OR username *Sudo only
 
-!list groups
+!list infernalgroups
 Get a list of all groups
 
-!list realms
+!list infernalrealms
 Get a list of all realms
 
 !log
 Grt a logfile of current group or realm
 
 !broadcast [text]
-!broadcast Hello !
+!broadcast InfernalTG !
 Send text to all groups
 Only sudo users can run this command
 
@@ -322,8 +323,39 @@ This command will send text to [group_id]
 *Only admins and sudo can use res, setowner, commands
 ]],
     help_text = [[
-#INFERNALTG mods do not need help !!!!
-They Are Expert~~~~
+tools for InfernalTG :
+
+>#1.Add_bot
+>#2.Anti_Bot
+>#3.Auto_Leave
+>#4.BLOCK
+>#5.Feedback
+>#6.Member_Manager
+>#7.S2A
+>#8.SUDO
+>#8.all_aboutgp
+>#9.arabic_lock
+>#10.banhammer
+>#11.down_media
+>#12.get
+>#13.inpm
+>#14.invite
+>#15.leaders
+>#16.leaveban
+>#17.plug
+>#18.realmcommands
+>#19.service_entergroup
+>#20.set
+>#21.spamprotection
+>#22.stats
+>#23.toengsupport
+>#24.topersupport
+>#25.spammer_a
+>#26.Spammer_i
+>#27.Version
+You Can Get Bot version by sending !version,"
+Master admin : @ArashInfernal ,"
+our channel : @INFERNALTEAMCH ,"
 
 ]]
   }
