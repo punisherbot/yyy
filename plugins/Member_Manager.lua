@@ -1088,6 +1088,17 @@ local function run(msg, matches)
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
       return "Group invition link is:\n"..group_link
     end
+     if matches[1] == 'splink' then
+      if not is_momod(msg) then
+        return "For moderators only!"
+      end
+      local group_link = data[tostring(msg.to.id)]['settings']['set_link']
+      if not group_link then 
+        return "Create a link using /clink first !"
+      end
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
+     send_large_msg('user#id'..msg.from.id, " Invite link for your group is :\n"..group_link
+    end
     if matches[1] == 'setowner' and matches[2] then
       if not is_owner(msg) then
         return "For owner only!"
@@ -1264,6 +1275,7 @@ return {
   "^[!/](clink)$",
   "^[!/](rlink)$",
   "^[!/](getlink)$",
+  "^[!/](splink)$",
   "^[!/](kickinactive)$",
   "^[!/](kickinactive) (%d+)$",
   "%[(photo)%]",
