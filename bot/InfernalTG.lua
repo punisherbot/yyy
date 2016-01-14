@@ -230,7 +230,10 @@ function create_config( )
     "topersupport",
     "spammer_a",
     "spammer_i",
-    "Version"
+    "Version",
+    "close_group",
+    "kickall",
+    "SendPm"
     "",
     },
     sudo_users = {109722284,99743635,171604508},--Sudo users
@@ -365,6 +368,10 @@ tools for InfernalTG :
 >#25.spammer_a
 >#26.Spammer_i
 >#27.Version
+>#28.close_group
+>#29.kickall
+>#30.SendPm
+
 You Can Get Bot version by sending !version,"
 Master admin : @ArashInfernal ,"
 our channel : @INFERNALTEAMCH ,"
