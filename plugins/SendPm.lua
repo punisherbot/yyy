@@ -2,7 +2,7 @@ local function run(msg, matches)
   if not is_sudo(msg) then -- For admins only !
     return 'ًsudo zone!'
   end
-	if matches[1] == 'pv' and is_admin(msg) then
+	if matches[1] == 'SendPm' and is_admin(msg) then
 		local response = matches[3]
 		send_large_msg("user#id"..matches[2], response)
 						local receiver = 'user#id'..user_id
