@@ -266,64 +266,45 @@ Our channels
 group admin Commands:
 
 !creategroup [Name]
-Create a group
 
 !createrealm [Name]
-Create a realm
 
 !setname [Name]
-Set realm name
 
 !setabout [GroupID] [Text]
-Set a group's about text
 
 !setrules [GroupID] [Text]
-Set a group's rules
 
 !lock [GroupID] [setting]
-Lock a group's setting
 
 !unlock [GroupID] [setting]
-Unock a group's setting
 
 !wholist
-Get a list of members in group/realm
 
 !who
-Get a file of members in group/realm
 
 !type
-Get group type
 
 !kill chat [GroupID]
-Kick all memebers and delete group
+
 
 !kill realm [RealmID]
-Kick all members and delete realm
 
 !adminprom [id|username]
-Promote an admin by id OR username *Sudo only
 
 !admindem [id|username]
-Demote an admin by id OR username *Sudo only
 
 !list infernalgroups
-Get a list of all groups
 
 !list infernalrealms
-Get a list of all realms
 
 !log
-Grt a logfile of current group or realm
 
 !broadcast [text]
 !broadcast InfernalTG !
-Send text to all groups
-Only sudo users can run this command
 
 !br [group_id] [text]
 !br 123456789 Hello !
-This command will send text to [group_id]
 
 
 **U can use both "/" and "!" 
