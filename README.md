@@ -1,6 +1,53 @@
 # [InfernalTG](https://telegram.me/TeleInfernal) 
 
-```[best anti spam bot]
+[best anti spam bot](telegram.me/InfernalTG)
+
+enabled PLUGINS :
+
+1. **Version**
+ 
+2. **Auto_Leave**
+
+3. **Robot**
+
+4. **Server**
+
+5. **Member_Manager**
+
+6. **Add_Bot**
+
+7. **chat**
+
+8. **banhammer**
+
+9. **plugins**
+
+10. **tagall**
+
+11. **leave_ban**
+
+12. **arabic_lock**
+
+13. **stats**
+
+14. **realmcommands**
+
+15. **laders**
+
+16. **set and get**
+
+17. **toengsupport**
+
+18. **topersupport**
+
+19. **Calc**
+
+20. **SendPm**
+
+21. **Feedback**
+
+22. **Expire**
+
 
 
 
