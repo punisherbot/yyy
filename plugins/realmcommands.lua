@@ -282,9 +282,9 @@ local function admin_list(msg)
         data[tostring(admins)] = {}
         save_data(_config.moderation.data, data)
         end
-        local message = 'List for Realm admins:\n'
+        local message = 'List for Infernal admins:\n'
         for k,v in pairs(data[tostring(admins)]) do
-                message = message .. '- (at)' .. v .. ' [' .. k .. '] ' ..'\n'
+                message = message .. '-👤 (infernal)' .. v .. ' [' .. k .. '] ' ..'\n'
         end
         return message
 end
@@ -392,9 +392,9 @@ local function username_id(cb_extra, success, result)
       if vusername == member then
         member_username = member
         member_id = v.id
-        if mod_cmd == 'addadmin' then
+        if mod_cmd == 'adminprom' then
             return admin_user_promote(receiver, member_username, member_id)
-        elseif mod_cmd == 'removeadmin' then
+        elseif mod_cmd == 'admindem' then
             return admin_user_demote(receiver, member_username, member_id)
         end
       end
@@ -588,25 +588,25 @@ function run(msg, matches)
 				chat_del_user(chat, user, ok_cb, true)
 			end
 		end
-		if matches[1] == 'addadmin' then
+		if matches[1] == 'adminprom' then
 			if string.match(matches[2], '^%d+$') then
 				local admin_id = matches[2]
-				print("user "..admin_id.." has been promoted as admin")
+				print("user "..admin_id.." has been promoted as globall admin")
 				return admin_promote(msg, admin_id)
 			else
 			local member = string.gsub(matches[2], "@", "")
-				local mod_cmd = "addadmin"
+				local mod_cmd = "adminprom"
 				chat_info(receiver, username_id, {mod_cmd= mod_cmd, receiver=receiver, member=member})
 			end
 		end
-		if matches[1] == 'removeadmin' then
+		if matches[1] == 'admins' then
 			if string.match(matches[2], '^%d+$') then
 				local admin_id = matches[2]
-				print("user "..admin_id.." has been demoted")
+				print("globall admins "..admin_id.." has been demoted")
 				return admin_demote(msg, admin_id)
 			else
 			local member = string.gsub(matches[2], "@", "")
-				local mod_cmd = "removeadmin"
+				local mod_cmd = "admindem"
 				chat_info(receiver, username_id, {mod_cmd= mod_cmd, receiver=receiver, member=member})
 			end
 		end
@@ -617,25 +617,25 @@ function run(msg, matches)
 		if matches[1] == 'list' and matches[2] == 'admins' then
 			return admin_list(msg)
 		end
-		if matches[1] == 'list' and matches[2] == 'groups' then
+		if matches[1] == 'list' and matches[2] == 'infernalgroups' then
                   if msg.to.type == 'chat' then
 			groups_list(msg)
-		        send_document("chat#id"..msg.to.id, "./groups/lists/groups.txt", ok_cb, false)	
+		        send_document("chat#id"..msg.to.id, "./groups/lists/infernalgroups.txt", ok_cb, false)	
 			return "Group list created" --group_list(msg)
                    elseif msg.to.type == 'user' then 
                         groups_list(msg)
-		        send_document("user#id"..msg.from.id, "./groups/lists/groups.txt", ok_cb, false)	
+		        send_document("user#id"..msg.from.id, "./groups/lists/infernalgroups.txt", ok_cb, false)	
 			return "Group list created" --group_list(msg)
                   end
 		end
-		if matches[1] == 'list' and matches[2] == 'realms' then
+		if matches[1] == 'list' and matches[2] == 'infernalrealms' then
                   if msg.to.type == 'chat' then
 			realms_list(msg)
-		        send_document("chat#id"..msg.to.id, "./groups/lists/realms.txt", ok_cb, false)	
+		        send_document("chat#id"..msg.to.id, "./groups/lists/infernalrealms.txt", ok_cb, false)	
 			return "Realms list created" --realms_list(msg)
                    elseif msg.to.type == 'user' then 
                         realms_list(msg)
-		        send_document("user#id"..msg.from.id, "./groups/lists/realms.txt", ok_cb, false)	
+		        send_document("user#id"..msg.from.id, "./groups/lists/infernalrealms.txt", ok_cb, false)	
 			return "Realms list created" --realms_list(msg)
                   end
 		end
@@ -669,8 +669,8 @@ return {
         "^[!/](type)$",
     "^[!/](kill) (chat) (%d+)$",
     "^[!/](kill) (realm) (%d+)$",
-    "^[!/](addadmin) (.*)$", -- sudoers only
-    "^[!/](removeadmin) (.*)$", -- sudoers only
+    "^[!/](adminprom) (.*)$", -- sudoers only
+    "^[!/](admindem) (.*)$", -- sudoers only
     "^[!/](list) (.*)$",
         "^[!/](log)$",
         "^[!/](help)$",
