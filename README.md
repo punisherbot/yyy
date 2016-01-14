@@ -108,7 +108,7 @@ our channels :
 thanks all for evrything
 **Imandaneshi**
 
-[join](https://telegram.me/joinchat/CptvyATHl7rgrwgNkIdDBw) for Infernals English support
+[join](https://telegram.me/joinchat/CptvyAXdgnyI8tIQoInBuA) for Infernals English support
 
 or 
 
@@ -151,8 +151,8 @@ lets install the source
 ```bash
 # Source
 cd $HOME
-git clone https://github.com/Arash-infernalTG/InfernalTG.git
-cd InfernalTg
+git clone https://github.com/Arash-infernal/InfernalTG.git
+cd InfernalTG
 chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # will ask you to Enter a phone number & confirmation code.
