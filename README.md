@@ -1,4 +1,39 @@
 # [InfernalTG](https://telegram.me/TeleInfernal) 
+
+```[best anti spam bot]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # [INSTALLION](installion)
 Lets Install the bot
 ```bash
