@@ -152,7 +152,7 @@ end
 
 local function run(msg, matches)
   -- Show the available plugins 
-  if matches[1] == 'pluglist' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+  if matches[1] == '/plugins' and is_sudo(msg) then --after changed to moderator mode, set only sudo
     return list_all_plugins()
   end
 
@@ -208,7 +208,7 @@ return {
           "plug * : reloads all plugins." },
           },
   patterns = {
-    "^[/!]pluglist$",
+    "^/plugins$",
     "^[/!]plug? (+) ([%w_%.%-]+)$",
     "^[/!]plug? (-) ([%w_%.%-]+)$",
     "^[/!]plug? (+) ([%w_%.%-]+) (gp)",
