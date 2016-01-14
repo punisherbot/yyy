@@ -2,7 +2,9 @@ do
 
 function run(msg, matches)
 if is sudo(msg) then
-return [[
+return arash is attacking [[
+
+
 Arash⭐😋, [13.01.16 17:58]
 Arash🔹íղƒҽɾղɑӀ™ has been Started Attacking ...
 Arash🔹íղƒҽɾղɑӀ™ has been Started Attacking ...
