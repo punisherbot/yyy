@@ -57,20 +57,20 @@ local function run (msg, matches)
   end
 
   local chatId = msg.to.id
-  if matches[1] == 'enable' then
+  if matches[1] == '+' then
     enableAntiBot(chatId)
     return 'Anti Bot enabled on this chat The bots will be kicked!'
   end
-  if matches[1] == 'disable' then
+  if matches[1] == '-' then
     disableAntiBot(chatId)
     return 'Anti-bot disabled on this chat bots will not kicked!'
   end
-  if matches[1] == 'allow' then
+  if matches[1] == '+' then
     local userId = matches[2]
     allowBot(userId, chatId)
     return 'Bot '..userId..' allowed'
   end
-  if matches[1] == 'disallow' then
+  if matches[1] == '-' then
     local userId = matches[2]
     disallowBot(userId, chatId)
     return 'Bot '..userId..' disallowed'
@@ -106,16 +106,16 @@ end
 return {
   description = 'When bot enters group kick it.',
   usage = {
-    'bot enable: Enable Anti-bot on current chat',
-    'bot disable: Disable Anti-bot on current chat',
-    'bot allow <botId>: Allow <botId> on this chat',
-    'bot disallow <botId>: Disallow <botId> on this chat'
+    'bot +: Enable Anti-bot on current chat',
+    'bot -: Disable Anti-bot on current chat',
+    'bot + <botId>: Allow <botId> on this chat',
+    'bot - <botId>: Disallow <botId> on this chat'
   },
   patterns = {
-    '^[!/]bot (allow) (%d+)$',
-    '^[!/]bot (disallow) (%d+)$',
-    '^[!/]bot (enable)$',
-    '^[!/]bot (disable)$',
+    '^[!/]bot (+) (%d+)$',
+    '^[!/]bot (+) (%d+)$',
+    '^[!/]bot (+)$',
+    '^[!/]bot (-)$',
     '^!!tgservice (chat_add_user)$',
     '^!!tgservice (chat_add_user_link)$'
   },
