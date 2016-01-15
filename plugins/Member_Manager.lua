@@ -110,7 +110,7 @@ local function kick_ban_res(extra, success, result)
         redis:srem(hash, member_id)
         return 'User '..user_id..' unbanned'
       elseif get_cmd == 'globalban' then
-        send_large_msg(receiver, 'User @'..member..' '..member_id..' globally banned!')
+        send_large_msg(receiver, 'User @'..member..' '..member_id..'globally banned!')
         return banall_user(member_id, chat_id)
       elseif get_cmd == 'globalunban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] un-globally banned')
@@ -130,7 +130,7 @@ local function run(msg, matches)
     elseif matches[1]:lower() == 'id' then
       local name = user_print_name(msg.from)
       savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
-      return "Group ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id  
+      return "Group  " ..string.gsub(msg.to.print_name, "_", " ").. " ID:"..msg.to.id  
     end
   end
   if matches[1]:lower() == 'kickme' then-- /kickme
@@ -268,7 +268,7 @@ end
          	return false 
         end
         	banall_user(targetuser)
-       		return 'User '..user_id..'  globally banned!'
+       		return 'User '..user_id..' globally banned!'
       else
 	local cbres_extra = {
 		chat_id = msg.to.id,
@@ -288,7 +288,7 @@ end
           	return false 
         end
        		unbanall_user(user_id)
-        	return 'User '..user_id..'  globally unbanned!'
+        	return 'User '..user_id..' globally unbanned!'
       else
 	local cbres_extra = {
 		chat_id = msg.to.id,
