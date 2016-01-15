@@ -209,6 +209,7 @@ function create_config( )
     "BLOCK",
     "Feedback",
     "Member_Manager",
+    "Group_Manager",
     "S2A",
     "SUDO",
     "all",
