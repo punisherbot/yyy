@@ -1,4 +1,4 @@
-# [InfernalTG](https://telegram.me/TeleInfernal) 
+# **[InfernalTG](https://telegram.me/TeleInfernal)** 
 
 [best anti spam bot](telegram.me/InfernalTG)
 
