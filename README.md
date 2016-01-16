@@ -68,7 +68,7 @@ enabled PLUGINS :
 
 &
 
-[Alfred](telegram.me/Namoosan)
+[Alfred](telegram.me/babaye_safar_koskesh_khar)
 
 and
 
