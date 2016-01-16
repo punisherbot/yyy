@@ -204,7 +204,7 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
-     "Add_Bot",
+     "Help_All",
     "Auto_Leave",
     "BLOCK",
     "Feedback",
@@ -230,7 +230,7 @@ function create_config( )
     "Version",
     "close_group",
     "kickall",
-    "SendPm",
+    "Maseage",
     "tagall",
     
     },
