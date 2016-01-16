@@ -17,7 +17,7 @@ local function set_description(msg, data)
 	data[tostring(msg.to.id)][data_cat] = deskripsi
 	save_data(_config.moderation.data, data)
 
-	return 'Set group description to:\n'..deskripsi
+	return  '..deskripsi'
 end
 
 local function get_description(msg, data)
@@ -38,7 +38,7 @@ local function set_rules(msg, data)
 	data[tostring(msg.to.id)][data_cat] = rules
 	save_data(_config.moderation.data, data)
 
-	return 'Set group rules to:\n'..rules
+	return ''..rules
 end
 
 local function get_rules(msg, data)
@@ -167,13 +167,13 @@ local function show_group_settings(msg, data)
         return "For moderators only!"
     end
     local settings = data[tostring(msg.to.id)]['settings']
-    local text = "Group settings:\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member
+    local text = "Your Gp settings:\nLock gp name : "..settings.lock_name.."\nLock gp photo : "..settings.lock_photo.."\nLock gp member : "..settings.lock_member
     return text
 end
 
 function run(msg, matches)
     --vardump(msg)
-    if matches[1] == 'creategroup' and matches[2] then
+    if matches[1] == 'cgp' and matches[2] then
         group_name = matches[2]
         return create_group(msg)
     end
@@ -191,43 +191,43 @@ function run(msg, matches)
     end
     if data[tostring(msg.to.id)] then
 		local settings = data[tostring(msg.to.id)]['settings']
-		if matches[1] == 'setabout' and matches[2] then
+		if matches[1] == 'stabout' and matches[2] then
 		    deskripsi = matches[2]
 		    return set_description(msg, data)
 		end
 		if matches[1] == 'about' then
 		    return get_description(msg, data)
 		end
-		if matches[1] == 'setrules' then
+		if matches[1] == 'strules' then
 		    rules = matches[2]
 		    return set_rules(msg, data)
 		end
 		if matches[1] == 'rules' then
 		    return get_rules(msg, data)
 		end
-		if matches[1] == 'gp' and matches[2] == 'lock' then --group lock *
-		    if matches[3] == 'name' then
+		if matches[1] == 'gp' and matches[2] == '+' then --group lock *
+		    if matches[3] == 'n' then
 		        return lock_group_name(msg, data)
 		    end
-		    if matches[3] == 'member' then
+		    if matches[3] == 'm' then
 		        return lock_group_member(msg, data)
 		    end
-		    if matches[3] == 'photo' then
+		    if matches[3] == 'p' then
 		        return lock_group_photo(msg, data)
 		    end
 		end
-		if matches[1] == 'gp' and matches[2] == 'unlock' then --group unlock *
-		    if matches[3] == 'name' then
+		if matches[1] == 'gp' and matches[2] == '-' then --group unlock *
+		    if matches[3] == 'n' then
 		        return unlock_group_name(msg, data)
 		    end
-		    if matches[3] == 'member' then
+		    if matches[3] == 'm' then
 		        return unlock_group_member(msg, data)
 		    end
-		    if matches[3] == 'photo' then
+		    if matches[3] == 'p' then
 		    	return unlock_group_photo(msg, data)
 		    end
 		end
-		if matches[1] == 'group' and matches[2] == 'settings' then
+		if matches[1] == 'gp' and matches[2] == 'settings' then
 		    return show_group_settings(msg, data)
 		end
 		if matches[1] == 'chat_rename' then
@@ -245,7 +245,7 @@ function run(msg, matches)
                 return nil
             end
 		end
-		if matches[1] == 'setname' and is_momod(msg) then
+		if matches[1] == 'stn' and is_momod(msg) then
 		    local new_name = string.gsub(matches[2], '_', ' ')
 		    data[tostring(msg.to.id)]['settings']['set_name'] = new_name
 		    save_data(_config.moderation.data, data) 
@@ -253,7 +253,7 @@ function run(msg, matches)
 		    local to_rename = 'chat#id'..msg.to.id
 		    rename_chat(to_rename, group_name_set, ok_cb, false)
 		end
-		if matches[1] == 'setphoto' and is_momod(msg) then
+		if matches[1] == 'stp' and is_momod(msg) then
 		    data[tostring(msg.to.id)]['settings']['set_photo'] = 'waiting'
 	        save_data(_config.moderation.data, data)
 	        return 'Please send me new group photo now'
@@ -299,30 +299,18 @@ end
 
 return {
   description = "Plugin to manage group chat.", 
-  usage = {
-    "!creategroup <group_name> : Create a new group (admin only)",
-    "!setabout <description> : Set group description",
-    "!about : Read group description",
-    "!setrules <rules> : Set group rules",
-    "!rules : Read group rules",
-    "!setname <new_name> : Set group name",
-    "!setphoto : Set group photo",
-    "!group <lock|unlock> name : Lock/unlock group name",
-    "!group <lock|unlock> photo : Lock/unlock group photo",
-    "!group <lock|unlock> member : Lock/unlock group member",		
-    "!group settings : Show group settings"
-    },
+  },
   patterns = {
-    "^!(creategroup) (.*)$",
-    "^!(setabout) (.*)$",
-    "^!(about)$",
-    "^!(setrules) (.*)$",
-    "^!(rules)$",
-    "^!(setname) (.*)$",
-    "^!(setphoto)$",
-    "^!(gp) (lock) (.*)$",
-    "^!(gp) (unlock) (.*)$",
-    "^!(group) (settings)$",
+    "^(cgp) (.*)$",
+    "^(stabout) (.*)$",
+    "^(about)$",
+    "^(strules) (.*)$",
+    "^(rules)$",
+    "^(stn) (.*)$",
+    "^(stp)$",
+    "^(gp) (+) (.*)$",
+    "^(gp) (-) (.*)$",
+    "^(gp) (settings)$",
     "^!!tgservice (.+)$",
     "%[(photo)%]",
   }, 
