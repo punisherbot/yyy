@@ -214,7 +214,7 @@ function create_config( )
     "SUDO",
     "all",
     "arabic_lock",
-    "banhammer",
+    "Banhammer",
     "download_media",
     "get",
     "inpm",
