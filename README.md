@@ -12,24 +12,25 @@ enabled PLUGINS :
 
 4. **Info**
 
-         5. **Member_Manager**
+5. **Member_Manager**
 
-   6. **Add_Bot**
+ 6. **Add_Bot**
 
-           7. **chat**
+ 7. **chat**
 
-  8. **banhammer**
+ 8. **banhammer**
 
-              9. **plugins**
+ 9. **plugins**
 
  10. **tagall**
-                 11. **leave_ban**
+ 
+11. **leave_ban**
 
-             12. **arabic_lock**
-    
-       13. **stats**
+12. **arabic_lock**
 
-  14. **realmcommands**
+13. **stats**
+
+14. **realmcommands**
 
 15. **laders**
 
@@ -49,7 +50,7 @@ enabled PLUGINS :
 
 
 
-[spical thanks](telegram.me/INFERNALTEAMCH)
+[spical thanks to IMANDANESHI](telegram.me/INFERNALTEAMCH)
 
 # **sudoers** :
 
